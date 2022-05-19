@@ -108,7 +108,7 @@
             <nav class="navbar bg-dark mt-4 ">
                 <div class="container-fluid">
                     <form class="d-flex ">
-                        <input aria-label="Search" class="form-control  me-2" placeholder="Customer ID" type="search">
+                        <input aria-label="Search" class="form-control  me-2" placeholder="Customer ID" type="search" id="customerSearchID" >
                         <button class="btn btn-outline-success" id="searchCustomer" type="button">Search</button>
                     </form>
 
@@ -146,7 +146,7 @@
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="tel">Contact No.</label>
                     <div class="col-sm-10">
-                        <input class="form-control" id="tel" type="tel" name="customerContactNo">
+                        <input class="form-control" id="tel" type="text" name="customerContactNo">
                         <small class="text-danger" id="errorCustomerTel" style="display: none">! Wrong format (Format:
                             0766612345/076 6612345/076-6612345) </small>
 
@@ -478,6 +478,9 @@
         $("#navBar").css('backgroundColor', 'Grey');
         $("#Customer").css('display', 'Block');
         $("#Home,#PlaceOrder,#Item").css('display', 'none');
+        loadAllCustomers();
+       /* generateCustomerId();*/
+
     });
 
     $("#ItemLink").click(function () {
@@ -488,39 +491,16 @@
     });
 
 
-    $("#AddCustomer").click(function (){
-        var data = $("#customerForm").serialize();
-        $.ajax({
-            url: "http://localhost:8080/BackEnd/customer",
-            method: "POST",
-            data: data,
-            success: function (res) {
-                if (res.status == 200) {
-                    alert(res.message);
-                    loadAllCustomers();
-                } else {alert(res.data);
-                }
-
-            },
-            error: function (ob, textStatus, error) {
-                console.log(ob);
-                console.log(textStatus);
-                console.log(error);
-            }
-        });
-
-    });
-
 
 </script>
 
 <script crossorigin="anonymous"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!--<script src="controller/CustomerController.js"></script>
+<script src="controller/CustomerController.js"></script>
 <script src="controller/ItemController.js"></script>
 <script src="controller/PlaceOrderController.js"></script>
-<script src="model/ItemDTO.js"></script>
+<!--<script src="model/ItemDTO.js"></script>
 <script src="model/CustomerDTO.js"></script>
 <script src="model/Order.js"></script>
 <script src="model/OrderDetail.js"></script>-->

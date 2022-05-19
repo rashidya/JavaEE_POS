@@ -7,23 +7,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ea2fee4-b8ee-453a-83be-075ba9204930" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/backend.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/BackEnd.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_json_1_1_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/javax_json_1_1_4.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/BackEnd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/BackEnd.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/BackEnd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/BackEnd.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/src/business/BOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/business/BOFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/src/business/custom/CustomerBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/business/custom/CustomerBO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/src/business/custom/Impl/CustomerBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/business/custom/Impl/CustomerBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/controller/CustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/controller/servlet/CustomerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/business/custom/Impl/ItemBoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/business/custom/Impl/ItemBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/business/custom/ItemBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/business/custom/ItemBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/controller/filter/CORSFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/controller/filter/CORSFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/controller/servlet/CustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/controller/servlet/CustomerServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/CrudDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/repository/CrudDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/CrudUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/repository/CrudUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/repository/DAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/custom/CustomerDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/custom/Impl/CustomerServletDAOImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/web/META-INF/context.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/custom/CustomerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/repository/custom/CustomerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/custom/Impl/CustomerDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/repository/custom/Impl/CustomerDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/BackEnd/BackEnd.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BackEnd/BackEnd.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/business/BOFactory$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/business/BOFactory$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/business/BOFactory$BOTypes.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/business/BOFactory$BOTypes.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/business/BOFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/business/BOFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/business/custom/CustomerBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/business/custom/CustomerBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/business/custom/Impl/CustomerBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/business/custom/Impl/CustomerBOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/business/custom/Impl/ItemBoImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/business/custom/Impl/ItemBoImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/business/custom/ItemBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/business/custom/ItemBO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/controller/filter/CORSFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/controller/filter/CORSFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/controller/servlet/CustomerServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/controller/servlet/CustomerServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/repository/CrudDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/repository/CrudDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/repository/custom/CustomerDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/repository/custom/CustomerDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/repository/custom/Impl/CustomerDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/repository/custom/Impl/CustomerDAOImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,33 +70,31 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mysql_connector.jar" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/FrontEnd/src" />
+    <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.1310616" />
     <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\GDSE58\SEM_02\Advanced API Development\work Area\JavaEE_POS\FrontEnd\src" />
       <recent name="D:\GDSE58\SEM_02\Advanced API Development\work Area\JavaEE_POS\BackEnd\src\repository" />
       <recent name="D:\GDSE58\SEM_02\Advanced API Development\work Area\JavaEE_POS\BackEnd\src\entity" />
       <recent name="D:\GDSE58\SEM_02\Advanced API Development\work Area\JavaEE_POS\BackEnd\src\dto" />
-      <recent name="D:\GDSE58\SEM_02\Advanced API Development\work Area\JavaEE_POS\FrontEnd\src" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="business" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -197,7 +205,8 @@
       <workItem from="1652948555647" duration="1940000" />
       <workItem from="1652950530683" duration="100000" />
       <workItem from="1652950645009" duration="168000" />
-      <workItem from="1652950831987" duration="3891000" />
+      <workItem from="1652950831987" duration="9747000" />
+      <workItem from="1652966830484" duration="19238000" />
     </task>
     <servers />
   </component>
