@@ -1,27 +1,30 @@
 package repository;
 
-import lk.ijse.pos_system.db.DbConnection;
 
+
+import com.sun.corba.se.pept.transport.ConnectionCache;
+
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CrudUtil {
-    private static PreparedStatement generatePreparedStatement(String query ,Object... args) throws SQLException, ClassNotFoundException {
-        PreparedStatement preparedStatement = DbConnection.getInstance().getConnection().prepareStatement(query);
+    private static PreparedStatement generatePreparedStatement(Connection connection,String query ,Object... args) throws SQLException, ClassNotFoundException {
+        PreparedStatement preparedStatement = connection.prepareStatement(query);
         for (int i = 0; i < args.length; i++) {
             preparedStatement.setObject(i+1,args[i]);
         }
         return preparedStatement;
     }
 
-    public static boolean executeUpdate(String query ,Object... args) throws SQLException, ClassNotFoundException {
-        return generatePreparedStatement(query,args).executeUpdate()>0;
+    public static boolean executeUpdate(Connection connection, String query , Object... args) throws SQLException, ClassNotFoundException {
+        return generatePreparedStatement(connection,query,args).executeUpdate()>0;
     }
 
 
-    public static ResultSet executeQuery(String query , Object... args) throws SQLException, ClassNotFoundException {
+    public static ResultSet executeQuery(Connection connection,String query , Object... args) throws SQLException, ClassNotFoundException {
 
-        return generatePreparedStatement(query,args).executeQuery();
+        return generatePreparedStatement(connection,query,args).executeQuery();
     }
 }

@@ -157,7 +157,7 @@
                     <button class="btn btn-secondary mt-3" id="cancelCustomer" type="button">Cancel</button>
                     <button class="btn btn-danger mt-3" id="DeleteCustomer" type="button">Delete</button>
                     <button class="btn btn-warning text-white mt-3" id="UpdateCustomer" type="button">Update</button>
-                    <button class="btn btn-success mt-3" disabled id="AddCustomer" type="button">Register
+                    <button class="btn btn-success mt-3"  id="AddCustomer" type="button">Register
                     </button>
                 </div>
             </form>
@@ -491,7 +491,7 @@
     $("#AddCustomer").click(function (){
         var data = $("#customerForm").serialize();
         $.ajax({
-            url: "http://localhost:8080/backend/customer",
+            url: "http://localhost:8080/BackEnd/customer",
             method: "POST",
             data: data,
             success: function (res) {
@@ -517,13 +517,13 @@
 <script crossorigin="anonymous"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="controller/CustomerController.js"></script>
+<!--<script src="controller/CustomerController.js"></script>
 <script src="controller/ItemController.js"></script>
 <script src="controller/PlaceOrderController.js"></script>
 <script src="model/ItemDTO.js"></script>
 <script src="model/CustomerDTO.js"></script>
 <script src="model/Order.js"></script>
-<script src="model/OrderDetail.js"></script>
+<script src="model/OrderDetail.js"></script>-->
 </body>
 
 </html>

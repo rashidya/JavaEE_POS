@@ -1,12 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="BackEnd" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0ea2fee4-b8ee-453a-83be-075ba9204930" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/backend.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/backend.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/BackEnd.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javax_json_1_1_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/javax_json_1_1_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/BackEnd.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/BackEnd.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/business/BOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/business/BOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/business/custom/CustomerBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/business/custom/CustomerBO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/business/custom/Impl/CustomerBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/business/custom/Impl/CustomerBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/controller/CustomerFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/controller/servlet/CustomerServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/CrudDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/repository/CrudDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/CrudUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/repository/CrudUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/repository/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/custom/CustomerDAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/custom/Impl/CustomerServletDAOImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/web/META-INF/context.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/web/WEB-INF/web.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +41,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="ProjectId" id="29Kaju2CgunbKFBM6emW0E65wlh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -36,10 +60,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/javax.json-api-1.1.4.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/mysql_connector.jar" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -66,18 +91,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tomcat 8.5.78" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.78" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/backend/" />
+    <configuration name="Tomcat 8.5.78" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.78" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/BackEnd/" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="backend">
+        <artifact name="BackEnd">
           <settings>
-            <option name="CONTEXT_PATH" value="/backend" />
+            <option name="CONTEXT_PATH" value="/BackEnd" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="2010f233-2213-4cac-96b0-037b7fdb9519" />
+        <option name="BASE_DIRECTORY_NAME" value="91353b04-0069-4819-bfbe-1e2a32028e08" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -85,7 +110,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="63808" />
+        <option name="DEBUG_PORT" value="61101" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -150,20 +175,8 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="backend" />
+          <artifact name="BackEnd" />
         </option>
-      </method>
-    </configuration>
-    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
-      <deployment />
-      <server-settings />
-      <predefined_log_file enabled="true" id="Tomcat" />
-      <predefined_log_file enabled="true" id="Tomcat Catalina" />
-      <predefined_log_file id="Tomcat Manager" />
-      <predefined_log_file id="Tomcat Host Manager" />
-      <predefined_log_file id="Tomcat Localhost Access" />
-      <method v="2">
-        <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -177,7 +190,14 @@
       <updated>1652864371943</updated>
       <workItem from="1652864373469" duration="242000" />
       <workItem from="1652864647822" duration="6822000" />
-      <workItem from="1652899178127" duration="7805000" />
+      <workItem from="1652899178127" duration="8400000" />
+      <workItem from="1652941527530" duration="5489000" />
+      <workItem from="1652947152514" duration="270000" />
+      <workItem from="1652947440720" duration="1094000" />
+      <workItem from="1652948555647" duration="1940000" />
+      <workItem from="1652950530683" duration="100000" />
+      <workItem from="1652950645009" duration="168000" />
+      <workItem from="1652950831987" duration="3891000" />
     </task>
     <servers />
   </component>
@@ -194,5 +214,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

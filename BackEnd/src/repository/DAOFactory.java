@@ -1,9 +1,7 @@
 package repository;
 
-import lk.ijse.pos_system.repository.custom.Impl.CustomerDAOImpl;
-import lk.ijse.pos_system.repository.custom.Impl.ItemDAOImpl;
-import lk.ijse.pos_system.repository.custom.Impl.OrderDAOImpl;
-import lk.ijse.pos_system.repository.custom.Impl.OrderDetailDAOImpl;
+
+import repository.custom.Impl.CustomerDAOImpl;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
@@ -19,12 +17,12 @@ public class DAOFactory {
         return daoFactory;
     }
 
-    public lk.ijse.pos_system.repository.SuperDAO getDAO(DAOTypes daoTypes){
+    public SuperDAO getDAO(DAOTypes daoTypes){
         switch (daoTypes){
-            case ITEM:return new ItemDAOImpl();
+           /* case ITEM:return new ItemDAOImpl();*/
             case CUSTOMER:return new CustomerDAOImpl();
-            case ORDER:return new OrderDAOImpl();
-            case ORDER_DETAILS:return new OrderDetailDAOImpl();
+           /* case ORDER:return new OrderDAOImpl();
+            case ORDER_DETAILS:return new OrderDetailDAOImpl();*/
             default:return null;
 
 
