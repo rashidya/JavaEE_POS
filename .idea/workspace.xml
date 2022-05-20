@@ -8,13 +8,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0ea2fee4-b8ee-453a-83be-075ba9204930" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/business/custom/Impl/ItemBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/business/custom/Impl/ItemBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/business/custom/ItemBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/business/custom/ItemBO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/controller/servlet/CustomerServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/controller/servlet/CustomerServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/dto/ItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/dto/ItemDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/repository/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/business/BOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/business/BOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/business/custom/Impl/PlaceOrderBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/business/custom/Impl/PlaceOrderBOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/business/custom/PlaceOrderBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/business/custom/PlaceOrderBO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/controller/CustomerController.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/controller/CustomerController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/controller/ItemController.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/controller/ItemController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/controller/PlaceOrderController.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/controller/PlaceOrderController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BackEnd/BackEnd.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BackEnd/BackEnd.war" afterDir="false" />
     </list>
@@ -192,7 +191,7 @@
       <workItem from="1652950645009" duration="168000" />
       <workItem from="1652950831987" duration="9747000" />
       <workItem from="1652966830484" duration="19802000" />
-      <workItem from="1653028133555" duration="11544000" />
+      <workItem from="1653028133555" duration="17333000" />
     </task>
     <servers />
   </component>

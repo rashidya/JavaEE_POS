@@ -1,0 +1,138 @@
+package controller.servlet;
+
+import business.BOFactory;
+import business.custom.CustomerBO;
+import business.custom.PlaceOrderBO;
+import dto.CustomerDTO;
+import dto.ItemDTO;
+import javafx.collections.ObservableList;
+
+import javax.annotation.Resource;
+import javax.json.Json;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonObjectBuilder;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.sql.DataSource;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+@WebServlet(urlPatterns = "/order")
+public class PlaceOrderServlet extends HttpServlet {
+    PlaceOrderBO placeOrderBO = (PlaceOrderBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.ORDER);
+
+    @Resource(name = "java:comp/env/jdbc/pool")
+    DataSource dataSource;
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        PrintWriter writer = resp.getWriter();
+        resp.setContentType("application/json");
+
+        String id = req.getParameter("id");
+        String option = req.getParameter("option");
+
+
+        try {
+            Connection connection = dataSource.getConnection();
+
+            switch (option) {
+
+                case "Customer":
+                    CustomerDTO customer = placeOrderBO.getCustomer(id, connection);
+
+                    JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
+
+                    objectBuilder.add("id", customer.getId());
+                    objectBuilder.add("name", customer.getName());
+                    objectBuilder.add("address", customer.getAddress());
+                    objectBuilder.add("contact_No", customer.getContactNo());
+
+
+                    writer.print(objectBuilder.build());
+                    break;
+
+                case "Item":
+                    ItemDTO item = placeOrderBO.getItem(id, connection);
+
+                    JsonObjectBuilder objectBuilder1 = Json.createObjectBuilder();
+
+                    objectBuilder1.add("itemId", item.getId());
+                    objectBuilder1.add("itemName", item.getItem());
+                    objectBuilder1.add("price", item.getUnitPrice());
+                    objectBuilder1.add("qty", item.getQty());
+
+
+                    writer.print(objectBuilder1.build());
+                    break;
+
+
+
+                /*case "ID":
+                    String id = customerBO.generateID(connection);
+
+                    JsonObjectBuilder objectBuilder1 = Json.createObjectBuilder();
+                    objectBuilder1.add("id",id);
+                    writer.print(objectBuilder1.build());
+                    break;*/
+            }
+
+            connection.close();
+
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+
+        }
+
+       /* PrintWriter writer = resp.getWriter();
+        resp.setContentType("application/json");
+
+
+
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            ObservableList<CustomerDTO> allCustomers = customerBO.getAllCustomers(connection);
+            JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
+
+            for (CustomerDTO dto : allCustomers) {
+                JsonObjectBuilder ob = Json.createObjectBuilder();
+
+                ob.add("id", dto.getId());
+                ob.add("name", dto.getName());
+                ob.add("address", dto.getAddress());
+                ob.add("contactNo", dto.getContactNo());
+
+                arrayBuilder.add(ob.build());
+
+            }
+
+
+            JsonObjectBuilder response = Json.createObjectBuilder();
+            response.add("status",200);
+            response.add("message", "Table Loaded");
+            response.add("data", arrayBuilder.build());
+
+            writer.print(response.build());
+
+            connection.close();
+        } catch (SQLException | ClassNotFoundException e) {
+
+            JsonObjectBuilder response = Json.createObjectBuilder();
+            response.add("status", 400);
+            response.add("message", "Error");
+            response.add("data", e.getLocalizedMessage());
+            writer.print(response.build());
+
+            resp.setStatus(HttpServletResponse.SC_OK);
+            e.printStackTrace();
+
+        }*/
+    }
+
+}

@@ -471,6 +471,8 @@
         $("#navBar").css('backgroundColor', 'Green');
         $("#PlaceOrder").css('display', 'Block');
         $("#Customer,#Home,#Item").css('display', 'none');
+        loadAllItemIds();
+        loadAllCustomerIds();
 
     });
 
@@ -478,7 +480,7 @@
         $("#navBar").css('backgroundColor', 'Grey');
         $("#Customer").css('display', 'Block');
         $("#Home,#PlaceOrder,#Item").css('display', 'none');
-        loadAllCustomers();
+
        /* generateCustomerId();*/
 
     });
@@ -487,7 +489,7 @@
         $("#navBar").css('backgroundColor', 'Grey');
         $("#Item").css('display', 'Block');
         $("#Customer,#PlaceOrder,#Home").css('display', 'none');
-        loadAllItems();
+
     });
 
 

@@ -1,7 +1,5 @@
-/*
-generateOrderId();
-loadAllItemIds();
-loadAllCustomerIds();
+/*generateOrderId();*/
+
 
 $("#cartTbl").css('overflow')
 var regDecimal = /^([0-9.]{1,})$/;
@@ -65,15 +63,21 @@ $("#orderIdPlaceOrder").keyup(function (e) {
 
 
 $("#selectCustomer").on('change', function () {
-
     let selectedId = $(this).find('option:selected').html();
 
-    customers.find(function (e) {
-        if (e.getId() === selectedId) {
-            $("#cusIdPlaceOrder").val(e.getId());
-            $("#cusNamePlaceOrder").val(e.getName());
-            $("#cusAddressPlaceOrder").val(e.getAddress());
-            $("#cusTelPlaceOrder").val(e.getTel());
+    $.ajax({
+        url: "http://localhost:8080/BackEnd/order?option=Customer&id="+ selectedId,
+        method: "GET",
+        success: function (resp) {
+
+            $("#cusIdPlaceOrder").val(resp.id);
+            $("#cusNamePlaceOrder").val(resp.name);
+            $("#cusAddressPlaceOrder").val(resp.address);
+            $("#cusTelPlaceOrder").val(resp.contact_No);
+
+        },
+        error: function (ob, statusText, error) {
+            alert("There is no customer with this ID");
         }
     });
 
@@ -81,24 +85,36 @@ $("#selectCustomer").on('change', function () {
 });
 
 $("#selectItem").on('change', function () {
-
     let selectedId = $(this).find('option:selected').html();
 
-    items.find(function (e) {
-        if (e.getId() === selectedId) {
-            $("#itemIdPlaceOrder").val(e.getId());
-            $("#itemNamePlaceOrder").val(e.getName());
-            $("#pricePlaceOrder").val(e.getPrice());
-            $("#qtyPlaceOrder").val(e.getQty());
+    $.ajax({
+        url: "http://localhost:8080/BackEnd/order?option=Item&id="+ selectedId,
+        method: "GET",
+        success: function (resp) {
+            $("#itemId").val(resp.itemId);
+            $("#itemName").val(resp.itemName);
+            $("#price").val(resp.price);
+            $("#Qty").val(resp.qty);
+
+            $("#itemIdPlaceOrder").val(resp.itemId);
+            $("#itemNamePlaceOrder").val(resp.itemName);
+            $("#pricePlaceOrder").val(resp.price);
+            $("#qtyPlaceOrder").val(resp.qty);
+
+        },
+        error: function (ob, statusText, error) {
+            alert("There is no item with this ID");
         }
     });
+
+
 
 
 });
 
 
 
-function placeOrder() {
+/*unction placeOrder() {
     let orderId = $("#orderIdPlaceOrder").val();
     let orderDate = $("#orderDatePlaceOrder").val();
     let orderCusId = $("#cusIdPlaceOrder").val();
@@ -270,13 +286,14 @@ function setBalance() {
     }
 
 }
-
+*/
 function loadAllItemIds() {
     $("#selectItem>option").remove();
     let i = 1;
 
-    for (let item of items) {
-        let option = `<option value="i">${item.getId()}</option>`;
+    for (let item of itemsArray) {
+
+        let option = `<option value="i">${item.itemId}</option>`;
         $("#selectItem").append(option);
         i++;
     }
@@ -287,8 +304,8 @@ function loadAllCustomerIds() {
     $("#selectCustomer>option").remove();
 
     let i = 1;
-    for (let customer of customers) {
-        let option = `<option value="i">${customer.getId()}</option>`;
+    for (let customer of customersArray) {
+        let option = `<option value="i">${customer.id}</option>`;
         $("#selectCustomer").append(option);
         i++;
     }
@@ -296,6 +313,7 @@ function loadAllCustomerIds() {
 
 }
 
+/*
 function addItemToCart() {
 
     let itemCode = $("#itemIdPlaceOrder").val();

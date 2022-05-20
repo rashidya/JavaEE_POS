@@ -1,4 +1,5 @@
 /*generateItemId();*/
+loadAllItems();
 
 var regExItemId = /^(I-)[0-9]{3}$/;
 var regExItemName = /^([A-z0-9/,\s]{3,})$/;
