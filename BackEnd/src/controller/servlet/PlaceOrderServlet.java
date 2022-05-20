@@ -171,6 +171,7 @@ public class PlaceOrderServlet extends HttpServlet {
         JsonReader reader = Json.createReader(req.getReader());
         JsonObject jsonOb = reader.readObject();
 
+        //aula methna thinne
 
         JsonArray orderItems = jsonOb.getJsonArray("orderItems");
 
