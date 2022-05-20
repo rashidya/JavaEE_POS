@@ -2,8 +2,9 @@ package controller.servlet;
 
 import business.BOFactory;
 import business.custom.CustomerBO;
-import business.custom.Impl.CustomerBOImpl;
+import business.custom.ItemBO;
 import dto.CustomerDTO;
+import dto.ItemDTO;
 import javafx.collections.ObservableList;
 
 import javax.annotation.Resource;
@@ -17,13 +18,11 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
-@WebServlet(urlPatterns = "/customer")
-public class CustomerServlet extends HttpServlet {
-    CustomerBO customerBO = (CustomerBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.CUSTOMER);
+@WebServlet(urlPatterns = "/item")
+public class ItemServlet extends HttpServlet {
+    ItemBO itemBO = (ItemBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.ITEM);
 
     @Resource(name = "java:comp/env/jdbc/pool")
     DataSource dataSource;
@@ -34,21 +33,22 @@ public class CustomerServlet extends HttpServlet {
         resp.setContentType("application/json");
 
 
-        CustomerDTO customerDTO = new CustomerDTO(
-                req.getParameter("customerID"),
-                req.getParameter("customerName"),
-                req.getParameter("customerAddress"),
-                req.getParameter("customerContactNo")
+        ItemDTO itemDTO = new ItemDTO(
+                req.getParameter("itemId"),
+                req.getParameter("itemName"),
+                req.getParameter("price"),
+                req.getParameter("qty")
+
         );
 
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
-            if (customerBO.addCustomer(customerDTO, connection)) {
+            if (itemBO.saveItem(itemDTO, connection)) {
 
                 resp.setStatus(HttpServletResponse.SC_OK);
                 JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
-                objectBuilder.add("message", "Customer Successfully Added.");
+                objectBuilder.add("message", "Item Successfully Added.");
                 objectBuilder.add("status", resp.getStatus());
                 writer.print(objectBuilder.build());
 
@@ -75,7 +75,7 @@ public class CustomerServlet extends HttpServlet {
         PrintWriter writer = resp.getWriter();
         resp.setContentType("application/json");
 
-        String cutomerId = req.getParameter("cusId");
+        String itemId = req.getParameter("itemId");
         String option = req.getParameter("option");
 
 
@@ -85,14 +85,14 @@ public class CustomerServlet extends HttpServlet {
             switch (option) {
 
                 case "SEARCH":
-                    CustomerDTO customer = customerBO.searchCustomer(cutomerId, connection);
+                    ItemDTO item = itemBO.searchItem(itemId, connection);
 
                     JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
 
-                    objectBuilder.add("id", customer.getId());
-                    objectBuilder.add("name", customer.getName());
-                    objectBuilder.add("address", customer.getAddress());
-                    objectBuilder.add("contact_No", customer.getContactNo());
+                    objectBuilder.add("itemId", item.getId());
+                    objectBuilder.add("itemName", item.getItem());
+                    objectBuilder.add("price", item.getUnitPrice());
+                    objectBuilder.add("qty", item.getQty());
 
 
                     writer.print(objectBuilder.build());
@@ -100,16 +100,16 @@ public class CustomerServlet extends HttpServlet {
 
                 case "GETALL":
 
-                    ObservableList<CustomerDTO> allCustomers = customerBO.getAllCustomers(connection);
+                    ObservableList<ItemDTO> allItems = itemBO.getAllItems(connection);
                     JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
 
-                    for (CustomerDTO dto : allCustomers) {
+                    for (ItemDTO dto : allItems) {
                         JsonObjectBuilder ob = Json.createObjectBuilder();
 
-                        ob.add("id", dto.getId());
-                        ob.add("name", dto.getName());
-                        ob.add("address", dto.getAddress());
-                        ob.add("contact_No", dto.getContactNo());
+                        ob.add("itemId", dto.getId());
+                        ob.add("itemName", dto.getItem());
+                        ob.add("price", dto.getUnitPrice());
+                        ob.add("qty", dto.getQty());
 
                         arrayBuilder.add(ob.build());
                     }
@@ -123,7 +123,7 @@ public class CustomerServlet extends HttpServlet {
                     break;
 
                 case "ID":
-                    String id = customerBO.generateID(connection);
+                    String id = itemBO.generateItemID(connection);
 
                     JsonObjectBuilder objectBuilder1 = Json.createObjectBuilder();
                     objectBuilder1.add("id",id);
@@ -138,50 +138,7 @@ public class CustomerServlet extends HttpServlet {
 
         }
 
-       /* PrintWriter writer = resp.getWriter();
-        resp.setContentType("application/json");
 
-
-
-        Connection connection = null;
-        try {
-            connection = dataSource.getConnection();
-            ObservableList<CustomerDTO> allCustomers = customerBO.getAllCustomers(connection);
-            JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
-
-            for (CustomerDTO dto : allCustomers) {
-                JsonObjectBuilder ob = Json.createObjectBuilder();
-
-                ob.add("id", dto.getId());
-                ob.add("name", dto.getName());
-                ob.add("address", dto.getAddress());
-                ob.add("contactNo", dto.getContactNo());
-
-                arrayBuilder.add(ob.build());
-
-            }
-
-
-            JsonObjectBuilder response = Json.createObjectBuilder();
-            response.add("status",200);
-            response.add("message", "Table Loaded");
-            response.add("data", arrayBuilder.build());
-
-            writer.print(response.build());
-
-            connection.close();
-        } catch (SQLException | ClassNotFoundException e) {
-
-            JsonObjectBuilder response = Json.createObjectBuilder();
-            response.add("status", 400);
-            response.add("message", "Error");
-            response.add("data", e.getLocalizedMessage());
-            writer.print(response.build());
-
-            resp.setStatus(HttpServletResponse.SC_OK);
-            e.printStackTrace();
-
-        }*/
     }
 
     @Override
@@ -191,21 +148,24 @@ public class CustomerServlet extends HttpServlet {
         JsonReader reader = Json.createReader(req.getReader());
         JsonObject jsonOb = reader.readObject();
 
-        CustomerDTO customerDTO = new CustomerDTO(
+
+
+       ItemDTO itemDTO = new ItemDTO(
                 jsonOb.getString("id"),
-                jsonOb.getString("name"),
-                jsonOb.getString("address"),
-                jsonOb.getString("contact")
+                jsonOb.getString("itemName"),
+                jsonOb.getString("price"),
+                jsonOb.getString("qty")
+
         );
 
         Connection connection = null;
         try {
             connection = dataSource.getConnection();
-            if (customerBO.updateCustomer(customerDTO, connection)) {
+            if (itemBO.updateItem(itemDTO, connection)) {
 
                 resp.setStatus(HttpServletResponse.SC_OK);
                 JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
-                objectBuilder.add("message", "Customer Successfully Updated.");
+                objectBuilder.add("message", "Item Successfully Updated.");
                 objectBuilder.add("status", resp.getStatus());
                 writer.print(objectBuilder.build());
 
@@ -230,17 +190,17 @@ public class CustomerServlet extends HttpServlet {
         resp.setContentType("application/jason");
         PrintWriter writer = resp.getWriter();
 
-        String cusId = req.getParameter("cusId");
+        String itemId = req.getParameter("itemId");
 
         try {
 
             Connection connection = dataSource.getConnection();
 
-            if (customerBO.deleteCustomer(cusId,connection)) {
+            if (itemBO.deleteItem(itemId,connection)) {
 
                 JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
                 resp.setStatus(HttpServletResponse.SC_OK);
-                objectBuilder.add("message","Customer Successfully Deleted.");
+                objectBuilder.add("message","Item Successfully Deleted.");
                 objectBuilder.add("status",resp.getStatus());
                 writer.print(objectBuilder.build());
 
@@ -267,5 +227,4 @@ public class CustomerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-
 }

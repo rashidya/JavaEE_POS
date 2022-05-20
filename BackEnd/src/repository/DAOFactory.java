@@ -2,6 +2,7 @@ package repository;
 
 
 import repository.custom.Impl.CustomerDAOImpl;
+import repository.custom.Impl.ItemDAOImpl;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
@@ -19,7 +20,7 @@ public class DAOFactory {
 
     public SuperDAO getDAO(DAOTypes daoTypes){
         switch (daoTypes){
-           /* case ITEM:return new ItemDAOImpl();*/
+            case ITEM:return new ItemDAOImpl();
             case CUSTOMER:return new CustomerDAOImpl();
            /* case ORDER:return new OrderDAOImpl();
             case ORDER_DETAILS:return new OrderDetailDAOImpl();*/

@@ -3,13 +3,13 @@ package dto;
 public class ItemDTO {
     private String id;
     private String item;
-    private Double unitPrice;
-    private int qty;
+    private String unitPrice;
+    private String qty;
 
     public ItemDTO() {
     }
 
-    public ItemDTO(String id, String item, Double unitPrice, int qty) {
+    public ItemDTO(String id, String item, String unitPrice, String qty) {
         this.id = id;
         this.item = item;
         this.unitPrice = unitPrice;
@@ -32,19 +32,19 @@ public class ItemDTO {
         this.item = item;
     }
 
-    public Double getUnitPrice() {
+    public String getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(Double unitPrice) {
+    public void setUnitPrice(String unitPrice) {
         this.unitPrice = unitPrice;
     }
 
-    public int getQty() {
+    public String getQty() {
         return qty;
     }
 
-    public void setQty(int qty) {
+    public void setQty(String qty) {
         this.qty = qty;
     }
 }

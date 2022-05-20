@@ -122,7 +122,7 @@
                     <div class="col-sm-10">
                         <input class="form-control" id="cusId" type="text" name="customerID">
                         <small class="text-danger" id="errorCustomerId" style="display: none">! Wrong format
-                            (Format:C-001) </small>
+                            (Format:C-XXX) </small>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -157,7 +157,7 @@
                     <button class="btn btn-secondary mt-3" id="cancelCustomer" type="button">Cancel</button>
                     <button class="btn btn-danger mt-3" id="DeleteCustomer" type="button">Delete</button>
                     <button class="btn btn-warning text-white mt-3" id="UpdateCustomer" type="button">Update</button>
-                    <button class="btn btn-success mt-3"  id="AddCustomer" type="button">Register
+                    <button class="btn btn-success mt-3" disabled id="AddCustomer" type="button">Register
                     </button>
                 </div>
             </form>
@@ -188,8 +188,8 @@
         <nav class="navbar navbar-light bg-dark mt-2 ">
             <div class="container-fluid">
                 <form class="d-flex">
-                    <input aria-label="Search" class="form-control me-2" placeholder="Item ID" type="search">
-                    <button class="btn btn-outline-success" type="button">Search</button>
+                    <input aria-label="Search" class="form-control me-2" placeholder="Item ID" type="search" id="itemSearchID">
+                    <button class="btn btn-outline-success" type="button" id="searchItem">Search</button>
                 </form>
 
             </div>
@@ -197,20 +197,20 @@
 
         <section class="row">
 
-            <form class="container-fluid mt-3 ">
+            <form class="container-fluid mt-3 " id="itemForm">
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="itemId">Item Id</label>
                     <div class="col-sm-10">
-                        <input class="form-control" id="itemId" type="text">
+                        <input class="form-control" id="itemId" type="text" name="itemId">
                         <small class="text-danger" id="errorItemId" style="display: none">! Wrong format (Format :
-                            I-001) </small>
+                            I-XXX) </small>
 
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="itemName">Item</label>
                     <div class="col-sm-10">
-                        <input class="form-control" id="itemName" type="text">
+                        <input class="form-control" id="itemName" type="text" name="itemName">
                         <small class="text-danger" id="errorItem" style="display: none">! Wrong format (Only A-z, 0-9,
                             space and . can be included) </small>
 
@@ -219,7 +219,7 @@
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="price">Unit Price</label>
                     <div class="col-sm-10">
-                        <input class="form-control" id="price" type="number">
+                        <input class="form-control" id="price" type="number" name="price">
                         <small class="text-danger" id="errorPrice" style="display: none">! Wrong format (Only 0-9 and .
                             can be included) </small>
 
@@ -229,7 +229,7 @@
                 <div class="row mb-3">
                     <label class="col-sm-2 col-form-label" for="Qty">Qty</label>
                     <div class="col-sm-10">
-                        <input class="form-control" id="Qty" type="number">
+                        <input class="form-control" id="Qty" type="number" name="qty">
                         <small class="text-danger" id="errorQty" style="display: none">! Wrong format (Only numbers can
                             be included) </small>
 
@@ -487,7 +487,7 @@
         $("#navBar").css('backgroundColor', 'Grey');
         $("#Item").css('display', 'Block');
         $("#Customer,#PlaceOrder,#Home").css('display', 'none');
-
+        loadAllItems();
     });
 
 
