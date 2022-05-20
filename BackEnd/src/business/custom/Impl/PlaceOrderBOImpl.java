@@ -64,7 +64,7 @@ public class PlaceOrderBOImpl implements PlaceOrderBO {
             con = connection;
             con.setAutoCommit(false);
 
-            Order order = new Order(dto.getOrderId(), LocalDate.parse(dto.getOrderDate()), dto.getCustomerId(),dto.getTotal());
+            Order order = new Order(dto.getOrderId(), LocalDate.parse(dto.getOrderDate()), dto.getCustomerId(),Double.parseDouble(dto.getTotal()));
 
             boolean orderAdded = orderDAO.add(order,con);
 

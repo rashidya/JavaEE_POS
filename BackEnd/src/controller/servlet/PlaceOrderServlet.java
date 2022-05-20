@@ -155,6 +155,7 @@ public class PlaceOrderServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json");
         PrintWriter writer = resp.getWriter();
+
         JsonReader reader = Json.createReader(req.getReader());
         JsonObject jsonOb = reader.readObject();
 
@@ -171,12 +172,15 @@ public class PlaceOrderServlet extends HttpServlet {
                     Integer.parseInt(jo.getString("itemQty"))));
         }
 
+
+
         OrderDTO orderDTO = new OrderDTO(
                 jsonOb.getString("orderId"),
                 jsonOb.getString("orderDate"),
                 jsonOb.getString("cusId"),
                 orderDetailItems,
-               Double.parseDouble(jsonOb.getString("total"))
+                jsonOb.getString("total")
+
         );
 
         Connection connection = null;
@@ -192,7 +196,7 @@ public class PlaceOrderServlet extends HttpServlet {
 
             }
             connection.close();
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
 
             JsonObjectBuilder response = Json.createObjectBuilder();
             response.add("status", 400);

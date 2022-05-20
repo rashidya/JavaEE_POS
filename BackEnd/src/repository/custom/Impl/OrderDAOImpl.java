@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class OrderDAOImpl implements OrderDAO {
     @Override
     public boolean add(Order order, Connection connection) throws SQLException, ClassNotFoundException {
-        return CrudUtil.executeUpdate(connection,"INSERT INTO Order VALUES(?,?,?,?)",order.getOrderId(),order.getOrderDate(),order.getCustomerId(),order.getTotal());
+        return CrudUtil.executeUpdate(connection,"INSERT INTO `Order` VALUES(?,?,?,?)",order.getOrderId(),order.getOrderDate(),order.getCustomerId(),order.getTotal());
 
     }
 

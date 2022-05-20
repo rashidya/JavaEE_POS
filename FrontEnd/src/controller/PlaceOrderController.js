@@ -119,11 +119,12 @@ $("#selectItem").on('change', function () {
 
 function placeOrder() {
 
-        var order={
+
+        var order = {
             orderId:$("#orderIdPlaceOrder").val(),
             orderDate:$("#orderDatePlaceOrder").val(),
             cusId:$("#cusIdPlaceOrder").val(),
-            total:$("#netTotalPlaceOrder").val(),
+            total:$("#netTotalPlaceOrder").text(),
             orderItems:cartItems
         }
 
@@ -439,7 +440,7 @@ function clearAll() {
     clearBillDetails();
     $("#cartTbl>tr").remove();
     cartItems = [];
-    generateOrderId();
+  /*  generateOrderId();*/
 }
 
 

@@ -7,12 +7,12 @@ public class OrderDTO {
     private String orderDate;
     private String customerId;
     private ArrayList<OrderDetailsDTO> orderItems;
-    private Double total;
+    private String total;
 
     public OrderDTO() {
     }
 
-    public OrderDTO(String orderId, String orderDate, String customerId, ArrayList<OrderDetailsDTO> orderItems, Double total) {
+    public OrderDTO(String orderId, String orderDate, String customerId, ArrayList<OrderDetailsDTO> orderItems, String total) {
         this.setOrderId(orderId);
         this.setOrderDate(orderDate);
         this.setCustomerId(customerId);
@@ -52,11 +52,11 @@ public class OrderDTO {
         this.orderItems = orderItems;
     }
 
-    public Double getTotal() {
+    public String getTotal() {
         return total;
     }
 
-    public void setTotal(Double total) {
+    public void setTotal(String total) {
         this.total = total;
     }
 }
