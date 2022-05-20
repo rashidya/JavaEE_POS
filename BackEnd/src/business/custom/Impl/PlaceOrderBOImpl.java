@@ -47,13 +47,21 @@ public class PlaceOrderBOImpl implements PlaceOrderBO {
     }
 
     @Override
-    public OrderDTO getOrder(String id, Connection connection) {
-        /*Order order =orderDAO.search(id, connection);
-        OrderDTO orderrDto = new OrderDTO(
-                customer.getId(), customer.getName(), customer.getAddress(), customer.getContact_No()
+    public OrderDTO getOrder(String id, Connection connection) throws SQLException, ClassNotFoundException {
+        Order order =orderDAO.search(id, connection);
+
+        ArrayList<OrderDetail> orderItems=orderDetailDAO.getOrderItems(id,connection);
+        ArrayList<OrderDetailsDTO> itemList=new ArrayList<>();
+
+        for (OrderDetail orderItem : orderItems) {
+            itemList.add(new OrderDetailsDTO(orderItem.getOrderId(),orderItem.getItemCode(),orderItem.getCusQty()));
+        }
+
+        OrderDTO orderDto = new OrderDTO(
+                order.getOrderId(), String.valueOf(order.getOrderDate()), order.getCustomerId(),itemList, String.valueOf(order.getTotal())
         );
-        return customerDto;*/
-        return null;
+        return orderDto;
+
     }
 
     @Override

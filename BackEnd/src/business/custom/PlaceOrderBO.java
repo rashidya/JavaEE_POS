@@ -13,7 +13,7 @@ public interface PlaceOrderBO extends SuperBO {
 
     ItemDTO getItem(String id, Connection connection) throws SQLException, ClassNotFoundException;
 
-    OrderDTO getOrder(String id, Connection connection);
+    OrderDTO getOrder(String id, Connection connection) throws SQLException, ClassNotFoundException;
 
     boolean placeOrder(OrderDTO orderDTO, Connection connection);
 }

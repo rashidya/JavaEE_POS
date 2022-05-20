@@ -36,6 +36,10 @@ $("#cashPlaceOrder").keyup(function (e) {
     enableDisablePlaceOrderBtn();
 
 });
+$("#orderIdPlaceOrder").keyup(function (e) {
+    validateOrderId();
+
+});
 
 $("#discountPlaceOrder").keyup(function (e) {
     let discount = parseFloat($("#discountPlaceOrder").val());
@@ -58,10 +62,9 @@ $("#discountPlaceOrder").keyup(function (e) {
 
 });
 
-$("#orderIdPlaceOrder").keyup(function (e) {
-  /* if (validateOrderId()) {
-       findOrder();
-   }*/
+$("#searchOrder").click(function (){
+    findOrder();
+
 });
 
 
@@ -158,8 +161,33 @@ function placeOrder() {
 
 }
 
-/*function findOrder(){
-    orders.find(function (o) {
+function findOrder(){
+    let orderId = $("#orderSearchID").val();
+
+    console.log(orderId)
+    $.ajax({
+        url: "http://localhost:8080/BackEnd/order?option=SearchOrder&id="+ orderId,
+        method: "GET",
+        success: function (resp) {
+            $("#orderDatePlaceOrder").val(resp.orderDate);
+            $("#netTotalPlaceOrder").text(resp.total);
+            $("#grossTotalPlaceOrder").text(resp.total);
+            $("#selectCustomer").val(resp.cusId);
+            $("#selectCustomer").trigger("change");
+
+            for (let orderItem of resp.orderItems) {
+                cartItems.push(new CartItem(orderItem.itemId,orderItem.itemName,orderItem.itemPrice,orderItem.itemQty,orderItem.total))
+            }
+
+            loadCartTable();
+
+        },
+        error: function (ob, statusText, error) {
+
+        }
+    });
+
+  /*  orders.find(function (o) {
         if (o.getId() === $("#orderIdPlaceOrder").val()) {
             $("#orderDatePlaceOrder").val(o.getDate());
             $("#netTotalPlaceOrder").val(o.getTotal());
@@ -176,8 +204,8 @@ function placeOrder() {
             cartItems = o.getOrderItems();
             loadCartTable();
         }
-    });
-}*/
+    });*/
+}
 
 function validateAllPlaceOrder(){
     let today = new Date().getDate();
@@ -272,13 +300,13 @@ function generateOrderId() {
 
 function loadAllItemIds() {
     $("#selectItem>option").remove();
-    let i = 1;
+
 
     for (let item of itemsArray) {
 
-        let option = `<option value="i">${item.itemId}</option>`;
+        let option = `<option value="${item.itemId}">${item.itemId}</option>`;
         $("#selectItem").append(option);
-        i++;
+
     }
 
 }
@@ -286,11 +314,11 @@ function loadAllItemIds() {
 function loadAllCustomerIds() {
     $("#selectCustomer>option").remove();
 
-    let i = 1;
+
     for (let customer of customersArray) {
-        let option = `<option value="i">${customer.id}</option>`;
+        let option = `<option value="${customer.id}">${customer.id}</option>`;
         $("#selectCustomer").append(option);
-        i++;
+
     }
 
 

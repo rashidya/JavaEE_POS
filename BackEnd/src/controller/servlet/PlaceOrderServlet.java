@@ -74,17 +74,29 @@ public class PlaceOrderServlet extends HttpServlet {
                     break;
 
                 case "SearchOrder":
-                    /*OrderDTO order = placeOrderBO.getOrder(id, connection);
+                    OrderDTO order = placeOrderBO.getOrder(id, connection);
 
+                    JsonArrayBuilder arrayBuilder = Json.createArrayBuilder();
+
+
+                    for (OrderDetailsDTO orderItem : order.getOrderItems()) {
+                        JsonObjectBuilder ob = Json.createObjectBuilder();
+                        ob.add("orderId",orderItem.getOrderId());
+                        ob.add("itemCode",orderItem.getItemCode());
+                        ob.add("cusQty",orderItem.getCusQty());
+                        ob.build();
+                        arrayBuilder.add(ob);
+                    }
+                    
                     JsonObjectBuilder objectBuilder2 = Json.createObjectBuilder();
+                    objectBuilder2.add("orderId", order.getOrderId());
+                    objectBuilder2.add("orderDate", order.getOrderDate());
+                    objectBuilder2.add("cusId", order.getCustomerId());
+                    objectBuilder2.add("orderItems",arrayBuilder.build() );
+                    objectBuilder2.add("total", order.getTotal());
 
-                    objectBuilder2.add("itemId", item.getId());
-                    objectBuilder2.add("itemName", item.getItem());
-                    objectBuilder2.add("price", item.getUnitPrice());
-                    objectBuilder2.add("qty", item.getQty());
 
-
-                    writer.print(objectBuilder2.build());*/
+                    writer.print(objectBuilder2.build());
                     break;
 
 
