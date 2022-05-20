@@ -1,20 +1,18 @@
-package dto;
+package entity;
 
-public class OrderDetailsDTO {
+public class OrderDetail {
     private String orderId;
     private String itemCode;
     private int cusQty;
 
-
-    public OrderDetailsDTO() {
+    public OrderDetail() {
     }
 
-    public OrderDetailsDTO(String orderId, String itemCode, int cusQty) {
+    public OrderDetail(String orderId, String itemCode, int cusQty) {
         this.setOrderId(orderId);
         this.setItemCode(itemCode);
         this.setCusQty(cusQty);
     }
-
 
     public String getOrderId() {
         return orderId;

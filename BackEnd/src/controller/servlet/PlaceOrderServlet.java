@@ -5,12 +5,13 @@ import business.custom.CustomerBO;
 import business.custom.PlaceOrderBO;
 import dto.CustomerDTO;
 import dto.ItemDTO;
+import dto.OrderDTO;
+import dto.OrderDetailsDTO;
+import entity.Order;
 import javafx.collections.ObservableList;
 
 import javax.annotation.Resource;
-import javax.json.Json;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObjectBuilder;
+import javax.json.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,6 +22,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 @WebServlet(urlPatterns = "/order")
 public class PlaceOrderServlet extends HttpServlet {
@@ -71,6 +73,19 @@ public class PlaceOrderServlet extends HttpServlet {
                     writer.print(objectBuilder1.build());
                     break;
 
+                case "SearchOrder":
+                    /*OrderDTO order = placeOrderBO.getOrder(id, connection);
+
+                    JsonObjectBuilder objectBuilder2 = Json.createObjectBuilder();
+
+                    objectBuilder2.add("itemId", item.getId());
+                    objectBuilder2.add("itemName", item.getItem());
+                    objectBuilder2.add("price", item.getUnitPrice());
+                    objectBuilder2.add("qty", item.getQty());
+
+
+                    writer.print(objectBuilder2.build());*/
+                    break;
 
 
                 /*case "ID":
@@ -133,6 +148,63 @@ public class PlaceOrderServlet extends HttpServlet {
             e.printStackTrace();
 
         }*/
+    }
+
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("application/json");
+        PrintWriter writer = resp.getWriter();
+        JsonReader reader = Json.createReader(req.getReader());
+        JsonObject jsonOb = reader.readObject();
+
+
+        JsonArray orderItems = jsonOb.getJsonArray("orderItems");
+
+        ArrayList<OrderDetailsDTO> orderDetailItems=new ArrayList<>();
+
+        for (JsonValue item : orderItems) {
+            JsonObject jo = item.asJsonObject();
+            orderDetailItems.add(new OrderDetailsDTO(
+                    jsonOb.getString("orderId"),
+                    jo.getString("itemId"),
+                    Integer.parseInt(jo.getString("itemQty"))));
+        }
+
+        OrderDTO orderDTO = new OrderDTO(
+                jsonOb.getString("orderId"),
+                jsonOb.getString("orderDate"),
+                jsonOb.getString("cusId"),
+                orderDetailItems,
+               Double.parseDouble(jsonOb.getString("total"))
+        );
+
+        Connection connection = null;
+        try {
+            connection = dataSource.getConnection();
+            if (placeOrderBO.placeOrder(orderDTO, connection)) {
+
+                resp.setStatus(HttpServletResponse.SC_OK);
+                JsonObjectBuilder objectBuilder = Json.createObjectBuilder();
+                objectBuilder.add("message", "Order Successfully Added.");
+                objectBuilder.add("status", resp.getStatus());
+                writer.print(objectBuilder.build());
+
+            }
+            connection.close();
+        } catch (SQLException | ClassNotFoundException e) {
+
+            JsonObjectBuilder response = Json.createObjectBuilder();
+            response.add("status", 400);
+            response.add("message", "Error");
+            response.add("data", e.getLocalizedMessage());
+            writer.print(response.build());
+
+            resp.setStatus(HttpServletResponse.SC_OK);
+            e.printStackTrace();
+        }
+
+
     }
 
 }

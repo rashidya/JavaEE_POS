@@ -1,6 +1,5 @@
 package repository.custom.Impl;
 
-import entity.Customer;
 import entity.Item;
 import repository.CrudUtil;
 import repository.custom.ItemDAO;
@@ -59,5 +58,16 @@ public class ItemDAOImpl implements ItemDAO {
         }else {
             return "I-001";
         }
+    }
+
+    @Override
+    public boolean updateStock(Connection con, String itemCode, int cusQty, String addOrRemove) throws SQLException, ClassNotFoundException {
+        int newQtyOnHand=0;
+        for (Item temp:getAll(con)) {
+            if(temp.getId().equals(itemCode)){
+                newQtyOnHand=(addOrRemove.equals("remove"))?temp.getQty()-cusQty:temp.getQty()+cusQty;
+            }
+        }
+        return CrudUtil.executeUpdate(con,"UPDATE Item SET qty=? WHERE id=?",newQtyOnHand,itemCode);
     }
 }
