@@ -1,6 +1,7 @@
 package repository.custom.Impl;
 
 import entity.OrderDetail;
+import repository.CrudUtil;
 import repository.custom.OrderDetailDAO;
 
 import java.sql.Connection;
@@ -10,7 +11,8 @@ import java.util.ArrayList;
 public class OrderDetailDAOImpl implements OrderDetailDAO {
     @Override
     public boolean add(OrderDetail orderDetail, Connection connection) throws SQLException, ClassNotFoundException {
-        return false;
+        return CrudUtil.executeUpdate(connection,"INSERT INTO OrderDetail VALUES(?,?,?,?)",orderDetail.getOrderId(),orderDetail.getItemCode(),orderDetail.getCusQty());
+
     }
 
     @Override
