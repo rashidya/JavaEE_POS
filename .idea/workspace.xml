@@ -8,19 +8,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0ea2fee4-b8ee-453a-83be-075ba9204930" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/business/custom/Impl/PlaceOrderBOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/business/custom/Impl/PlaceOrderBOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/business/custom/PlaceOrderBO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/business/custom/PlaceOrderBO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/src/controller/servlet/PlaceOrderServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/controller/servlet/PlaceOrderServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/custom/Impl/OrderDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/repository/custom/Impl/OrderDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/custom/Impl/OrderDetailDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/repository/custom/Impl/OrderDetailDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/repository/custom/OrderDetailDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/repository/custom/OrderDetailDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/controller/PlaceOrderController.js" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/controller/PlaceOrderController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/BackEnd/BackEnd.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/BackEnd/BackEnd.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/business/custom/Impl/PlaceOrderBOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/business/custom/Impl/PlaceOrderBOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/business/custom/PlaceOrderBO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/business/custom/PlaceOrderBO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/controller/servlet/PlaceOrderServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/controller/servlet/PlaceOrderServlet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/BackEnd/repository/custom/Impl/OrderDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BackEnd/repository/custom/Impl/OrderDAOImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,19 +65,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Tomcat 8.5.78" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.78" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/BackEnd/" />
       <option name="UPDATING_POLICY" value="restart-server" />
@@ -196,7 +173,8 @@
       <workItem from="1652950645009" duration="168000" />
       <workItem from="1652950831987" duration="9747000" />
       <workItem from="1652966830484" duration="19802000" />
-      <workItem from="1653028133555" duration="44840000" />
+      <workItem from="1653028133555" duration="45558000" />
+      <workItem from="1653129239909" duration="2873000" />
     </task>
     <servers />
   </component>

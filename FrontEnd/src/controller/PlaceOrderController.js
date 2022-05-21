@@ -164,7 +164,6 @@ function placeOrder() {
 function findOrder(){
     let orderId = $("#orderSearchID").val();
 
-    console.log(orderId)
     $.ajax({
         url: "http://localhost:8080/BackEnd/order?option=SearchOrder&id="+ orderId,
         method: "GET",
@@ -175,15 +174,36 @@ function findOrder(){
             $("#selectCustomer").val(resp.cusId);
             $("#selectCustomer").trigger("change");
 
+
+            let i=0;
+
             for (let orderItem of resp.orderItems) {
-                cartItems.push(new CartItem(orderItem.itemId,orderItem.itemName,orderItem.itemPrice,orderItem.itemQty,orderItem.total))
+
+                $.ajax({
+                    url: "http://localhost:8080/BackEnd/order?option=Item&id="+ orderItem.itemCode,
+                    method: "GET",
+                    success: function (response) {
+                        i++;
+                        let total=parseFloat(response.price)*parseInt(orderItem.cusQty);
+                        cartItems.push(new CartItem(orderItem.itemCode,response.itemName,response.price,orderItem.cusQty,total))
+                        console.log(cartItems)
+                        if (resp.orderItems.length==i){
+                            loadCartTable();
+                        }
+                    },
+                    error: function (ob, statusText, error) {
+
+                    }
+                });
+
             }
 
-            loadCartTable();
+
+
 
         },
         error: function (ob, statusText, error) {
-
+            alert("There is no Order with this Id");
         }
     });
 

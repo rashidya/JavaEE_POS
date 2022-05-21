@@ -84,19 +84,25 @@ public class PlaceOrderServlet extends HttpServlet {
                         ob.add("orderId",orderItem.getOrderId());
                         ob.add("itemCode",orderItem.getItemCode());
                         ob.add("cusQty",orderItem.getCusQty());
-                        ob.build();
-                        arrayBuilder.add(ob);
+                        JsonObject oItem = ob.build();
+
+                        arrayBuilder.add(oItem);
+
                     }
-                    
+
+                    JsonArray orderItems = arrayBuilder.build();
+
+
                     JsonObjectBuilder objectBuilder2 = Json.createObjectBuilder();
                     objectBuilder2.add("orderId", order.getOrderId());
                     objectBuilder2.add("orderDate", order.getOrderDate());
                     objectBuilder2.add("cusId", order.getCustomerId());
-                    objectBuilder2.add("orderItems",arrayBuilder.build() );
+                    objectBuilder2.add("orderItems",orderItems );
                     objectBuilder2.add("total", order.getTotal());
 
 
                     writer.print(objectBuilder2.build());
+
                     break;
 
 
@@ -171,7 +177,7 @@ public class PlaceOrderServlet extends HttpServlet {
         JsonReader reader = Json.createReader(req.getReader());
         JsonObject jsonOb = reader.readObject();
 
-        //aula methna thinne
+
 
         JsonArray orderItems = jsonOb.getJsonArray("orderItems");
 
@@ -183,7 +189,10 @@ public class PlaceOrderServlet extends HttpServlet {
                     jsonOb.getString("orderId"),
                     jo.getString("itemId"),
                     Integer.parseInt(jo.getString("itemQty"))));
+
+
         }
+
 
 
 
